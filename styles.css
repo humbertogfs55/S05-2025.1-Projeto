@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 414px;
+    margin: 0 auto;
+    background-color: #90c0d6;
+}
+
+/* Header styling */
+header {
+    background: #333;  /* Dark background */
+    padding: 16px;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon, .logo {
+    color: #fff;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Main container layout */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+/* Box styling */
+.box {
+    padding: 16px;
+    border: 1px solid #ccc;  /* Light gray border */
+    text-align: center;
+    background: #f9f9f9;  /* Light gray background */
+    height: auto; /* Allow box height to adjust based on content */
+    flex: 1; /* Allow boxes to take up remaining space */
+    border-radius: 8px;  /* Rounded corners */
+}
+
+/* Messages box styling */
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;  /* Align items to the start (left) */
+}
+
+.messages-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;  /* Dark gray text for titles */
+}
+
+.message-item {
+    font-size: 16px;
+    padding: 8px;
+    background: #e1e1e1;  /* Light gray background for items */
+    border-radius: 8px;
+    color: #333;  /* Dark gray text for message items */
+}
+
+/* Classes box styling */
+.classes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;  /* Align items to the start (left) */
+}
+
+.classes-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 8px;
+    background: #e1e1e1;  /* Light gray background for classes item */
+    border-radius: 8px;
+    width: 100%; /* Ensure the item takes full width of the container */
+    gap: 16px; /* Increased space between icon and content */
+}
+
+.classes-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Add space between title and info */
+    flex-grow: 1; /* Allow the content to take up the remaining space */
+    align-items: flex-start;
+}
+
+.classes-item-content-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;  /* Dark gray text for the title */
+}
+
+.classes-item-content-info {
+    font-size: 14px;
+    color: #666;  /* Medium gray text for info */
+}
+
+.classes-item-icon {
+    font-size: 24px;
+    color: #4A90E2;  /* Light blue color for icon */
+}
+
+/* Add hover effect for interactive elements */
+.classes-item:hover,
+.message-item:hover {
+    background: #D0D0D0;  /* Slightly darker gray for hover */
+    cursor: pointer;  /* Indicate that it's clickable */
+}
+
+.box:hover {
+    background: #eaeaea;  /* Lighten box background on hover */
+}
