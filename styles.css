@@ -1,3 +1,14 @@
+:root {
+    --primary-color: #065CBE; /* Inatel Blue */
+    --secondary-color: #350FF2; /* secondary blue */
+    --accent-color: #0F31F2; /* accent blue */
+    --secondary-accent-color: #800FF2; /* accent purple */
+    --background-color: #e1e1e1; /* Light background */
+    --secondary-background-color: #01475a; /* dark blue/gray background */
+    --white-text-color: #e1e1e1; /* light text color */
+    --black-text-color: #333; /* dark text color */
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,33 +23,33 @@ body {
     min-height: 100vh;
     max-width: 414px;
     margin: 0 auto;
-    background-color: #90c0d6;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 /* Header styling */
 header {
-    background: #333;  /* Dark background */
+    background: var(--secondary-background-color);
     padding: 16px;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 2px solid var(--accent-color)
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--white-text-color);
 }
 
-.icon, .logo {
-    color: #fff;
+.svg_logo_inatel {
+    width: 20vw; /* Adjusts based on viewport width */
+    max-width: 200px; /* Maximum size */
+    height: auto;
 }
-
 .icon {
-    font-size: 24px;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 5vw;
+    max-width: 40px; /* Adjusts based on viewport width */
+    text-align: center;
 }
 
 /* Main container layout */
@@ -54,9 +65,9 @@ header {
 /* Box styling */
 .box {
     padding: 16px;
-    border: 1px solid #ccc;  /* Light gray border */
+    border: 1px solid var(--accent-color);
     text-align: center;
-    background: #f9f9f9;  /* Light gray background */
+    background: var(--secondary-background-color);
     height: auto; /* Allow box height to adjust based on content */
     flex: 1; /* Allow boxes to take up remaining space */
     border-radius: 8px;  /* Rounded corners */
@@ -74,15 +85,16 @@ header {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #333;  /* Dark gray text for titles */
+    color: var(--white-text-color);
 }
 
 .message-item {
     font-size: 16px;
     padding: 8px;
-    background: #e1e1e1;  /* Light gray background for items */
+    font-weight: bold;
+    background: var(--background-color);  /* Light gray background for items */
     border-radius: 8px;
-    color: #333;  /* Dark gray text for message items */
+    color: var(--black-text-color);  /* Dark gray text for message items */
 }
 
 /* Classes box styling */
@@ -126,15 +138,4 @@ header {
 .classes-item-icon {
     font-size: 24px;
     color: #4A90E2;  /* Light blue color for icon */
-}
-
-/* Add hover effect for interactive elements */
-.classes-item:hover,
-.message-item:hover {
-    background: #D0D0D0;  /* Slightly darker gray for hover */
-    cursor: pointer;  /* Indicate that it's clickable */
-}
-
-.box:hover {
-    background: #eaeaea;  /* Lighten box background on hover */
 }
