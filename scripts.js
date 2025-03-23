@@ -66,14 +66,17 @@ const events = [
         image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&h=400'
     }
 ];
+const carousel = document.querySelector('.carousel');
+let index = 0;
+let autoSlide;
 
 //dinamic add event cards to news
 function populateCarousel() {
-    const carousel = document.querySelector('.carousel');
-    
+    if (!carousel) return;
+
     events.forEach(event => {
         const card = document.createElement('div');
-        card.classList.add('carousel-item');
+        card.classList.add('card');
         card.innerHTML = `
             <img src="${event.image}" alt="${event.title}">
             <div class="info">
@@ -85,8 +88,57 @@ function populateCarousel() {
                 </p>
             </div>
         `;
+
+        card.addEventListener("mouseenter", pauseAutoSlide);
+        card.addEventListener("mouseleave", resetAutoSlide);
         carousel.appendChild(card);
     });
+    startAutoSlide();
 }
+
+// Controle do carrossel
+function nextCard() {
+    index = (index + 1) % events.length;
+    updateCarousel();
+    resetAutoSlide();
+}
+
+function prevCard() {
+    index = (index - 1 + events.length) % events.length;
+    updateCarousel();
+    resetAutoSlide();
+}
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function startAutoSlide() {
+    autoSlide = setInterval(nextCard, 5000);
+}
+
+function pauseAutoSlide() {
+    clearInterval(autoSlide);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
+}
+
+// Adicionando interatividade
+document.getElementById('nextBtn').addEventListener('click', nextCard);
+document.getElementById('prevBtn').addEventListener('click', prevCard);
+
+// Arrastar no celular
+let startX;
+carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+carousel.addEventListener('touchend', (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextCard();
+    if (endX - startX > 50) prevCard();
+});
 
 document.addEventListener('DOMContentLoaded', populateCarousel);
