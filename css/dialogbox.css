@@ -1,0 +1,55 @@
+dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--secondary-background-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px var(--accent-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+dialog[open] {
+    visibility: visible;
+    opacity: 1;
+}
+
+dialog h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+dialog[open] {
+    visibility: visible;
+    opacity: 1;
+}
+
+dialog[open] {
+    background-color: var(--secondary-background-color);
+}
+
+#themeDialog button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#themeDialog button:hover {
+    background-color: var(--secondary-color);
+}

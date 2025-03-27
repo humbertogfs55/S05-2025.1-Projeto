@@ -1,0 +1,54 @@
+.class-title {
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.labels {
+    display: flex;
+}
+
+.test-label,
+.attendance-label,
+.grade-label {
+    background-color: var(--background-color);
+    padding: 7px 15px;
+    margin-bottom: 10px;
+    border-radius: 500px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.attendance-label {
+    background-color: var(--background-color);
+}
+
+.grade-label {
+    background-color: var(--background-color);
+}
+
+.p-label {
+    font-size: 13px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.red {
+    background-color: red;
+    color: white; /* Text color */
+}
+
+.orange {
+    background-color: orange;
+    color: white; /* Text color */
+}
+
+.green {
+    background-color: green;
+    color: white; /* Text color */
+}

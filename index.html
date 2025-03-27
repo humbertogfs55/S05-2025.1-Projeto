@@ -9,7 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/dialogbox.css">
+    <link rel="stylesheet" href="css/classes.css">
+    <link rel="stylesheet" href="css/messages.css">
+    <link rel="stylesheet" href="css/carousel.css">
+
 </head>
 
 <body>
@@ -42,14 +49,9 @@
         </div>
 
         <div class="box classes">
-            <div class="classes-item">
-                <div class="classes-item-content">
-                    <div class="classes-item-content-title">Disciplina</div>
-                    <div class="classes-item-content-info">Sala Horário</div>
-                </div>
-                <div class="classes-item-icon"><span class="material-symbols-outlined">school</span></div>
-            </div>
+            <class-component id="component"></class-component>
         </div>
+
         <div class="box news">
             <div class="carousel-container">
                 <div class="carousel">
@@ -57,11 +59,12 @@
                 </div>
                 <button id="prevBtn">❮</button>
                 <button id="nextBtn">❯</button>
-            </div> 
+            </div>
         </div>
     </div>
 
     <script src="scripts.js"></script>
+    <script type="module" src="classes_script.js"></script>
 </body>
 
 </html>

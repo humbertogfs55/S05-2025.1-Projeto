@@ -1,0 +1,28 @@
+/* header.css */
+header {
+    background: var(--secondary-background-color);
+    padding: 16px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white-text-color);
+}
+
+.svg_logo_inatel {
+    width: 20vw;
+    /* Adjusts based on viewport width */
+    max-width: 200px;
+    /* Maximum size */
+    height: auto;
+}
+
+.icon {
+    font-size: 5vw;
+    max-width: 40px;
+    /* Adjusts based on viewport width */
+    text-align: center;
+}
