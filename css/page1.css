@@ -1,0 +1,56 @@
+.menu-btn {
+    display: block;
+    margin: 16px auto;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--white-text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-btn:hover {
+    background-color: var(--accent-color);
+}
+
+dialog {
+    display: none; /* Hide the dialog by default */
+    opacity: 0; /* Ensure it's invisible */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+dialog[open] {
+    display: flex; /* Make it visible when open */
+    opacity: 1; /* Fully visible */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--secondary-background-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+dialog input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    font-size: 14px;
+}

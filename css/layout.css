@@ -33,3 +33,37 @@ p {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 16px; /* Add spacing between boxes */
+    padding: 16px;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+.box {
+    display: flex;
+    flex-direction: column; /* Ensure content inside the box stacks vertically */
+    gap: 8px; /* Add spacing between elements inside the box */
+    padding: 16px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: var(--secondary-background-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure boxes take up full width of the container */
+    max-width: 414px; /* Optional: Limit the width for consistency */
+    margin: 0 auto; /* Center the boxes horizontally */
+}
+
+.box img {
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Optional: Add rounded corners to images */
+}
+
+.info {
+    display: flex;
+    flex-direction: column; /* Stack content inside the info section */
+    gap: 8px; /* Add spacing between elements */
+}

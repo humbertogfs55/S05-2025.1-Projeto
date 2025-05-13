@@ -1,28 +1,39 @@
 /* header.css */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: var(--secondary-background-color);
     padding: 16px;
     border-bottom: 2px solid var(--accent-color);
+    width: 100%;
+    max-width: 414px; /* Matches the base width of other containers */
+    margin: 0 auto; /* Centers the header */
+    box-sizing: border-box;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--white-text-color);
-}
-
-.svg_logo_inatel {
-    width: 20vw;
-    /* Adjusts based on viewport width */
-    max-width: 200px;
-    /* Maximum size */
-    height: auto;
+    width: 100%;
 }
 
 .icon {
-    font-size: 5vw;
-    max-width: 40px;
-    /* Adjusts based on viewport width */
+    font-size: 24px;
     text-align: center;
+    cursor: pointer;
+}
+
+.logo-container {
+    flex: 1; /* Allows the logo to take up available space */
+    display: flex;
+    justify-content: center; /* Centers the logo horizontally */
+    align-items: center;
+    min-width: 300px;
+}
+
+.logo {
+    max-width: 90px;
+    height: auto;
 }

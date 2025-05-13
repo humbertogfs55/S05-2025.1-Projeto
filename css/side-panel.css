@@ -1,0 +1,43 @@
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: var(--secondary-background-color);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-panel.open {
+    left: 0;
+}
+
+.side-panel nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.side-panel nav ul li {
+    margin: 20px 0;
+}
+
+.side-panel nav ul li a {
+    text-decoration: none;
+    color: var(--white-text-color);
+    font-size: 18px;
+}
+
+.side-panel .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--white-text-color);
+    cursor: pointer;
+    align-self: flex-end;
+}

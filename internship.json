@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Estágio em Desenvolvimento de Software",
+        "company": "Padtec",
+        "location": "Campinas, SP",
+        "requirements": "Conhecimento em JavaScript, React e Node.js",
+        "applyBy": "30 de Maio de 2025",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800&h=400"
+    },
+    {
+        "id": 2,
+        "title": "Estágio em Análise de Dados",
+        "company": "Ericsson",
+        "location": "São José dos Campos, SP",
+        "requirements": "Proeficiência em Python, SQL e ferramentas de visualização de dados",
+        "applyBy": "15 de Junho de 2025",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800&h=400"
+    },
+    {
+        "id": 3,
+        "title": "Estágio em Design UI/UX",
+        "company": "CPQD",
+        "location": "Campinas, SP",
+        "requirements": "Experiência com Figma, Adobe XD e pesquisa de usuários",
+        "applyBy": "25 de Maio de 2025",
+        "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800&h=400"
+    },
+    {
+        "id": 4,
+        "title": "Estágio em Redes de Telecomunicações",
+        "company": "Claro Brasil",
+        "location": "Belo Horizonte, MG",
+        "requirements": "Conhecimento em redes de telecomunicações e protocolos de comunicação",
+        "applyBy": "10 de Junho de 2025",
+        "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&h=400"
+    },
+    {
+        "id": 5,
+        "title": "Estágio em Engenharia de Software",
+        "company": "Huawei",
+        "location": "São Paulo, SP",
+        "requirements": "Conhecimento em desenvolvimento de software embarcado e C++",
+        "applyBy": "20 de Junho de 2025",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800&h=400"
+    }
+]

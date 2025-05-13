@@ -32,11 +32,6 @@ dialog h2 {
 }
 
 dialog[open] {
-    visibility: visible;
-    opacity: 1;
-}
-
-dialog[open] {
     background-color: var(--secondary-background-color);
 }
 

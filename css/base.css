@@ -23,3 +23,16 @@
     padding: 0;
     font-family: "Arimo", sans-serif;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 414px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}

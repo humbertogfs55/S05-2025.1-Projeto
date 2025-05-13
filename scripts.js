@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightModeButton = document.getElementById('lightModeButton');
     const darkModeButton = document.getElementById('darkModeButton');
 
+    // Apply saved theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+
     settingsIcon.addEventListener('click', () => {
         themeDialog.showModal();
     });
@@ -14,63 +20,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     lightModeButton.addEventListener('click', () => {
-        document.body.setAttribute("data-theme", "light");
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light'); // Save theme to localStorage
         themeDialog.close();
     });
 
     darkModeButton.addEventListener('click', () => {
-        document.body.setAttribute("data-theme", "dark");
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark'); // Save theme to localStorage
         themeDialog.close();
+    });
+
+    const menuIcon = document.getElementById('menuIcon');
+    const sidePanel = document.getElementById('sidePanel');
+    const closePanel = document.getElementById('closePanel');
+
+    if (menuIcon && sidePanel && closePanel) {
+        menuIcon.addEventListener('click', () => {
+            sidePanel.classList.add('open');
+        });
+
+        closePanel.addEventListener('click', () => {
+            sidePanel.classList.remove('open');
+        });
+
+        // Close side panel when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!sidePanel.contains(event.target) && !menuIcon.contains(event.target)) {
+                sidePanel.classList.remove('open');
+            }
+        });
+    } else {
+        console.error('Menu button or side panel elements not found.');
+    }
+
+    carousel = document.querySelector('.carousel'); // Initialize carousel after DOM is loaded
+    if (!carousel) {
+        console.error('Carousel element not found.');
+        return;
+    }
+
+    // Call fetchEvents to populate the carousel
+    fetchEvents();
+
+    // Add interactivity for carousel navigation
+    document.getElementById('nextBtn').addEventListener('click', nextCard);
+    document.getElementById('prevBtn').addEventListener('click', prevCard);
+
+    // Add touch support for mobile devices
+    let startX;
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    carousel.addEventListener('touchend', (e) => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextCard();
+        if (endX - startX > 50) prevCard();
     });
 });
 
-const events = [
-    {
-        id: 1,
-        title: 'Semana do Software 2025',
-        date: '12/05',
-        time: '10:00',
-        location: 'Salão de Eventos',
-        type: 'tech',
-        description: 'Uma semana inteira dedicada à tecnologia e inovação, com palestras, workshops e hackathons.',
-        image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800&h=400'
-    },
-    {
-        id: 2,
-        title: 'Workshop de IoT',
-        date: '12/01',
-        time: '08:00',
-        location: 'Laboratório CS&I',
-        type: 'tech',
-        description: 'Workshop prático sobre Internet das Coisas e suas aplicações na indústria 4.0.',
-        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800&h=400'
-    },
-    {
-        id: 3,
-        title: 'Festa dos Alunos 2025',
-        date: '18/05',
-        time: '19:00',
-        location: 'Área Esportiva do Inatel',
-        type: 'cultural',
-        description: 'Venha comemorar a melhor Festa dos Alunos de todos os tempos!',
-        image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800&h=400'
-    },
-    {
-        id: 4,
-        title: 'Feira de Oportunidades',
-        date: '04/05',
-        time: '10:00',
-        location: 'Salão de Eventos',
-        type: 'academic',
-        description: 'Venha conhecer empresas e projetos com destaque na área da engenharia.',
-        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&h=400'
-    }
-];
-const carousel = document.querySelector('.carousel');
-let index = 0;
-let autoSlide;
+let events = [];
+let carousel; // Declare the carousel variable
+let autoSlide; // Declare autoSlide for the interval
+let index = 0; // Declare index to track the current slide
 
-//dinamic add event cards to news
+async function fetchEvents() {
+    try {
+        const response = await fetch('events.json');
+        events = await response.json();
+        populateCarousel();
+    } catch (error) {
+        console.error('Error loading events:', error);
+    }
+}
+
 function populateCarousel() {
     if (!carousel) return;
 
@@ -96,7 +119,6 @@ function populateCarousel() {
     startAutoSlide();
 }
 
-// Controle do carrossel
 function nextCard() {
     index = (index + 1) % events.length;
     updateCarousel();
@@ -125,20 +147,3 @@ function resetAutoSlide() {
     clearInterval(autoSlide);
     startAutoSlide();
 }
-
-// Adicionando interatividade
-document.getElementById('nextBtn').addEventListener('click', nextCard);
-document.getElementById('prevBtn').addEventListener('click', prevCard);
-
-// Arrastar no celular
-let startX;
-carousel.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-});
-carousel.addEventListener('touchend', (e) => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextCard();
-    if (endX - startX > 50) prevCard();
-});
-
-document.addEventListener('DOMContentLoaded', populateCarousel);
