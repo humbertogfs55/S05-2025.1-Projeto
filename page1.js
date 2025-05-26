@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const menuIcon = document.getElementById('menuIcon');
+    const settingsIcon = document.getElementById('settingsIcon')
     const sidePanel = document.getElementById('sidePanel');
     const closePanel = document.getElementById('closePanel');
-    const openMenu = document.getElementById('openMenu');
     const interactiveMenu = document.getElementById('interactiveMenu');
     const closeMenu = document.getElementById('closeMenu');
     const userDetailsForm = document.getElementById('userDetailsForm');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Open the interactive menu
-    openMenu.addEventListener('click', () => {
+    settingsIcon.addEventListener('click', () => {
         interactiveMenu.showModal();
     });
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('github', github);
         localStorage.setItem('email', email);
 
-        alert('Your details have been saved!');
+        alert('Seus dados foram salvos!');
         interactiveMenu.close(); // Ensure the modal closes after saving
     });
 
@@ -83,9 +83,9 @@ async function loadInternships() {
                         <span class="material-symbols-outlined icon">pin_drop</span> ${internship.location}
                     </p>
                     <p>
-                        <span class="material-symbols-outlined icon">event</span> Apply by: ${internship.applyBy}
+                        <span class="material-symbols-outlined icon">event</span> Data Limite: ${internship.applyBy}
                     </p>
-                    <button class="apply-btn" data-id="${internship.id}">Apply</button>
+                    <button class="apply-btn" data-id="${internship.id}">Inscrever</button>
                 </div>
             `;
 
@@ -97,7 +97,7 @@ async function loadInternships() {
         applyButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 const internshipId = event.target.getAttribute('data-id');
-                alert(`You applied for internship ID: ${internshipId}`);
+                alert(`Voce se inscreveu para o estagio!: ${internshipId}`);
             });
         });
     } catch (error) {
